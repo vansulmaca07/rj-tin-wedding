@@ -146,49 +146,43 @@
     animation: fadeUp 1.2s ease 0.3s both;
     width: 100%;
     max-width: 360px;
+    text-align: center;
   }
 
   .details-stack {
     display: flex;
     flex-direction: column;
-    gap: 0.9rem;
+    gap: 1.2rem;
   }
 
   .detail-row {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
-    text-align: left;
+    text-align: center;
   }
 
   .detail-row .icon-circle {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(126,155,181,0.1);
-    border: 1px solid rgba(126,155,181,0.15);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: none;
   }
 
   .detail-row svg {
-    width: 16px; height: 16px;
+    width: 20px; height: 20px;
     stroke: var(--dusty-blue);
-    stroke-width: 1.3;
+    stroke-width: 1.2;
     fill: none;
+    margin-bottom: 0.4rem;
   }
 
-  .detail-row .detail-info { flex: 1; }
+  .detail-row .detail-info { }
 
   .detail-row .detail-label {
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--silver);
     opacity: 0.5;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.25rem;
   }
 
   .detail-row .detail-value {
@@ -445,19 +439,15 @@
     <div class="details-stack">
 
       <div class="detail-row">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         <div class="detail-info">
           <p class="detail-label">Date</p>
-          <p class="detail-value">June 17, 2026 <small>Wednesday</small></p>
+          <p class="detail-value">June 17, 2026<small>Wednesday</small></p>
         </div>
       </div>
 
       <div class="detail-row">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <div class="detail-info">
           <p class="detail-label">Time</p>
           <p class="detail-value">10:00 AM — 2:00 PM</p>
@@ -465,9 +455,7 @@
       </div>
 
       <div class="detail-row">
-        <div class="icon-circle">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <div class="detail-info">
           <p class="detail-label">Venue</p>
           <p class="detail-value">The Home of Authentic Laing 2</p>
