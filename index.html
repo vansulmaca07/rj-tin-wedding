@@ -25,7 +25,7 @@
     font-family: 'Jost', sans-serif;
     color: var(--dark-slate);
     -webkit-font-smoothing: antialiased;
-    background: var(--cream);
+    background: #2a3440;
   }
 
   /* ── PAGE WRAPPER ── */
@@ -34,32 +34,56 @@
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(170deg, var(--cream) 0%, var(--pearl) 40%, #c8d5df 100%);
     position: relative;
     overflow: hidden;
   }
 
+  /* ── VENUE BACKGROUND ── */
+  .bg-photo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: url('venue-bg.jpg') center center / cover no-repeat;
+    filter: blur(18px) brightness(0.35) saturate(0.5);
+    transform: scale(1.1); /* hide blur edges */
+  }
+
+  /* gradient overlay for readability */
+  .bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(170deg,
+        rgba(42,52,64,0.75) 0%,
+        rgba(74,89,104,0.5) 40%,
+        rgba(92,122,148,0.35) 70%,
+        rgba(42,52,64,0.7) 100%
+      );
+  }
+
   /* floating orbs */
   .orb {
-    position: absolute;
+    position: fixed;
     border-radius: 50%;
     pointer-events: none;
+    z-index: 2;
     animation: orbFloat 20s ease-in-out infinite;
   }
   .orb:nth-child(1) {
     width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(126,155,181,0.12), transparent 70%);
+    background: radial-gradient(circle, rgba(126,155,181,0.08), transparent 70%);
     top: -5%; left: -8%;
   }
   .orb:nth-child(2) {
     width: 220px; height: 220px;
-    background: radial-gradient(circle, rgba(181,185,189,0.1), transparent 70%);
+    background: radial-gradient(circle, rgba(181,185,189,0.06), transparent 70%);
     bottom: 5%; right: -5%;
     animation-delay: 7s;
   }
   .orb:nth-child(3) {
     width: 160px; height: 160px;
-    background: radial-gradient(circle, rgba(126,155,181,0.08), transparent 70%);
+    background: radial-gradient(circle, rgba(126,155,181,0.05), transparent 70%);
     top: 45%; left: 70%;
     animation-delay: 12s;
   }
@@ -73,7 +97,7 @@
   /* ── CONTENT ── */
   .content {
     position: relative;
-    z-index: 2;
+    z-index: 3;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -94,15 +118,17 @@
     font-size: 0.65rem;
     letter-spacing: 0.35em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--light-silver);
     margin-bottom: 0.8rem;
+    opacity: 0.8;
   }
 
   .couple-names {
     font-family: 'Pinyon Script', cursive;
     font-size: clamp(3rem, 9vw, 5.5rem);
     line-height: 1.1;
-    color: var(--steel-blue);
+    color: var(--pearl);
+    text-shadow: 0 2px 30px rgba(126,155,181,0.3);
   }
 
   .ampersand {
@@ -111,8 +137,9 @@
     font-weight: 300;
     font-style: italic;
     font-size: clamp(1.2rem, 3vw, 1.8rem);
-    color: var(--silver);
+    color: var(--dusty-blue);
     margin: 0.1rem 0;
+    opacity: 0.8;
   }
 
   .wedding-type {
@@ -120,8 +147,9 @@
     font-size: 0.7rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--silver);
     margin-top: 1rem;
+    opacity: 0.7;
   }
 
   /* ── DIVIDER ── */
@@ -131,7 +159,7 @@
     justify-content: center;
     gap: 1rem;
   }
-  .divider-line { width: 40px; height: 1px; background: var(--light-silver); }
+  .divider-line { width: 40px; height: 1px; background: rgba(181,185,189,0.3); }
   .divider-dot { width: 5px; height: 5px; background: var(--dusty-blue); transform: rotate(45deg); opacity: 0.5; }
 
   /* ── DETAILS ROW ── */
@@ -159,13 +187,14 @@
     text-transform: uppercase;
     color: var(--silver);
     margin-bottom: 0.35rem;
+    opacity: 0.7;
   }
 
   .detail-value {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+    font-size: clamp(0.95rem, 2.2vw, 1.15rem);
     font-weight: 500;
-    color: var(--dark-slate);
+    color: var(--pearl);
     line-height: 1.4;
   }
 
@@ -174,8 +203,9 @@
     font-family: 'Jost', sans-serif;
     font-size: 0.7rem;
     font-weight: 300;
-    color: var(--warm-grey);
+    color: var(--silver);
     margin-top: 0.1rem;
+    opacity: 0.7;
   }
 
   /* ── MAP LINK ── */
@@ -192,7 +222,7 @@
     margin-top: 0.3rem;
     transition: all 0.3s ease;
   }
-  .map-link:hover { color: var(--steel-blue); border-color: var(--steel-blue); }
+  .map-link:hover { color: var(--pearl); border-color: var(--pearl); }
   .map-link svg {
     width: 12px; height: 12px;
     stroke: currentColor; stroke-width: 1.5; fill: none;
@@ -209,8 +239,9 @@
     font-size: 0.6rem;
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--warm-grey);
+    color: var(--silver);
     margin-bottom: 0.6rem;
+    opacity: 0.7;
   }
 
   .countdown-grid {
@@ -223,13 +254,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px;
+    padding: 0.8rem 1rem;
+    min-width: 65px;
   }
 
   .countdown-number {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     font-size: clamp(2rem, 5vw, 2.8rem);
-    color: var(--steel-blue);
+    color: var(--pearl);
     line-height: 1;
     min-width: 2ch;
     transition: all 0.3s ease;
@@ -241,71 +279,23 @@
     text-transform: uppercase;
     color: var(--silver);
     margin-top: 0.25rem;
-  }
-
-  /* ── RSVP BUTTON ── */
-  .rsvp-area {
-    animation: fadeUp 1.2s ease 0.8s both;
-    text-align: center;
-  }
-
-  .rsvp-btn {
-    display: inline-block;
-    font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--white);
-    background: var(--steel-blue);
-    padding: 0.75rem 2.5rem;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .rsvp-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
-  }
-
-  .rsvp-btn:hover {
-    background: var(--dark-slate);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 20px rgba(74,89,104,0.2);
-  }
-
-  .rsvp-btn:hover::before { transform: translateX(100%); }
-
-  .rsvp-note {
-    font-size: 0.6rem;
-    color: var(--silver);
-    margin-top: 0.5rem;
-    font-weight: 300;
+    opacity: 0.6;
   }
 
   /* ── FOOTER ── */
   .footer {
     text-align: center;
-    padding: 1rem;
-    animation: fadeUp 1.2s ease 1s both;
+    animation: fadeUp 1.2s ease 0.8s both;
   }
 
   .message {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300;
     font-style: italic;
-    font-size: clamp(0.8rem, 1.8vw, 0.95rem);
-    color: var(--dark-slate);
-    opacity: 0.6;
-    max-width: 380px;
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    color: var(--pearl);
+    opacity: 0.5;
+    max-width: 400px;
     margin: 0 auto;
     line-height: 1.6;
   }
@@ -318,13 +308,14 @@
     color: var(--silver);
     margin-top: 0.6rem;
     display: block;
+    opacity: 0.5;
   }
 
   /* ── MAP MODAL ── */
   .map-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(74,89,104,0.6);
+    background: rgba(42,52,64,0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 100;
@@ -349,7 +340,7 @@
     overflow: hidden;
     transform: translateY(20px);
     transition: transform 0.4s ease;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   }
 
   .map-overlay.active .map-modal {
@@ -444,6 +435,10 @@
 </head>
 <body>
 
+<!-- VENUE PHOTO BACKGROUND (blurred) -->
+<div class="bg-photo"></div>
+<div class="bg-overlay"></div>
+
 <div class="page">
   <div class="orb"></div>
   <div class="orb"></div>
@@ -521,14 +516,13 @@
       </div>
     </div>
 
-    <!-- RSVP -->
-    <div class="rsvp-area">
-      <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="rsvp-btn">Kindly RSVP</a>
-      <p class="rsvp-note">Please respond by June 1, 2026</p>
-    </div>
-
     <!-- FOOTER MESSAGE -->
     <div class="footer">
+      <div class="divider" style="margin-bottom: 1rem;">
+        <div class="divider-line"></div>
+        <div class="divider-dot"></div>
+        <div class="divider-line"></div>
+      </div>
       <p class="message">
         With joyful hearts, we invite you to witness and celebrate the beginning of our forever.
       </p>
